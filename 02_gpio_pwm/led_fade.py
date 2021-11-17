@@ -1,0 +1,26 @@
+import RPi.GPIO as GPIO
+import time
+
+LED_PIN = 24
+
+GPIO.setmode(GPIO.BCM)
+GPIO.setup(LED_PIN, GPIO.OUT)
+
+
+pwm = GPIO.PWM(LED_PIN, 50)
+pwm.start(0) 
+
+try:
+    for i in range(3):
+        
+        for j in range(0, 101, 5):
+            pwm.ChangeDutyCycle(j)
+            time.sleep(0.1) 
+        
+        for j in range(100, -1, -5)
+            pwd.ChangeDutyCycle(j)
+            time.sleep(0.1)
+finally:
+    pwd.stop()
+    GPIO.cleanup()
+    print('cleanup and exit')
